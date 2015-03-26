@@ -11,7 +11,17 @@
       <%= label_tag "last_name" %><br>
       <%= text_field_tag "last_name", '', class: 'form-control' %>
     </p>
+    <div id="dropin"></div>
 
     <input type="submit" value="Pay $10" class="btn btn-primary">
   <% end %>
 </div>
+
+<script src="https://js.braintreegateway.com/v2/braintree.js"></script>
+<script>  
+braintree.setup(
+  "<%= @client_token %>",
+  'dropin', {
+    container: 'dropin'
+});
+</script>
